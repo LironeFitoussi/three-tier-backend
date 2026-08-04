@@ -21,4 +21,3 @@ uvicorn app.main:app --reload
 
 The `Dockerfile` ships as a skeleton with `# TODO` comments — completing it
 is Stage 1's exercise, not something handed over pre-solved.
-# three-tier-backend
