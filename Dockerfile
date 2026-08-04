@@ -1,20 +1,13 @@
-# TODO: choose a base image (slim Python 3.x recommended for a smaller image)
-FROM
+FROM python:3.12-slim
 
-# TODO: set the working directory inside the container
-WORKDIR
+WORKDIR /app
 
-# TODO: copy requirements.txt first (so dependency install is cached separately from app code)
-COPY
+COPY requirements.txt .
 
-# TODO: install dependencies from requirements.txt
-RUN
+RUN pip install -r requirements.txt
 
-# TODO: copy the rest of the application code into the image
-COPY
+COPY app ./app
 
-# TODO: document the port the app listens on
-EXPOSE
+EXPOSE 8000
 
-# TODO: run the app with uvicorn, bound to 0.0.0.0 so it's reachable from outside the container
-CMD
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
